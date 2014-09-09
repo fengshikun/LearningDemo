@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Insert title here</title>
+</head>
+<body>
+
+描述：${description}
+<br/>
+集合大小:${nameList?size}
+<br/>
+迭代list集合：
+<br/>
+<#list nameList as names>
+    这是第${names_index+1}代火影，叫做：<label style="color:red">${names}</label>
+    if判断：
+    <br/>
+    <#if (names=="一代")>
+        他的绝招是:木遁
+        <#elseif (names=="二代")>       <#--注意这里没有返回而是在最后面-->
+            他的绝招是: 秽土转生
+            <#else>
+                他的绝招是：召唤术
+    </#if>
+    <br/>
+</#list>
+迭代map集合：
+<br/>
+<#list weaponMap?keys as key>
+    key--->${key}<br/>
+    value----->${weaponMap[key]!("我是null")}
+    <br/>
+</#list>
+include导入文件：
+<br/>
+<#include "include.html"/>
+</body>
+</html>
